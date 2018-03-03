@@ -8,6 +8,7 @@ export default class PatientProfile extends React.Component {
     constructor(props) {
         super(props);
         this.requestAddHandler = this.requestAddHandler.bind(this);
+        this.userUpdaterHandler = this.userUpdaterHandler.bind(this);
         this.state = {
             user: {
                 First: "Ben",
@@ -86,7 +87,13 @@ export default class PatientProfile extends React.Component {
 
     requestAddHandler(bundledRequest) {
         bundledRequest.id = this.state.requests.length+1;
-        this.setState( (prevState) => ({requests: prevState.requests.concat(bundledRequest)}) );    
+        this.setState( (prevState) => ({requests: prevState.requests.concat(bundledRequest)}) );
+        alert("Your request has been submited!");
+    }
+
+    userUpdaterHandler(bundledUser) {
+        this.setState( () => ({user: bundledUser}) );
+        alert("Your information has been updated!");
     }
 
     render(props) {
@@ -96,7 +103,7 @@ export default class PatientProfile extends React.Component {
         return (                          
             <div id="body">
             { (this.props.viewSelector==0) && <ProfileView userInfo={this.state.user} isDoctor={this.props.isDoctor} />}
-            { (this.props.viewSelector==1) && <EditProfile userInfo={this.state.user} />}
+            { (this.props.viewSelector==1) && <EditProfile userInfo={this.state.user} userUpdater={this.userUpdaterHandler}/>}
             { (this.props.viewSelector==2) && <MakeRequest requestAdder={this.requestAddHandler}/>}
             { (this.props.viewSelector==3) && <RequestHistory requests={this.state.requests} />}
             { (this.props.viewSelector>3) && <ProfileView userInfo={this.state.user}/>}

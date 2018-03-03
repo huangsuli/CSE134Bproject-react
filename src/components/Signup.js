@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class EditProfile extends React.Component {
+export default class Signup extends React.Component {
     constructor(props) {
         super(props);
         this.handleEdit = this.handleEdit.bind(this);
@@ -11,9 +11,8 @@ export default class EditProfile extends React.Component {
             lastErr: "",
             emailErr: "",
             emailConfErr: "",
-            oldPassErr: "",
-            newPassErr: "If left blank then old password won't change",
-            newPassConfErr: "",
+            passErr: "",
+            passConfErr: "",
             locationErr: "",
             dobErr: ""
         };
@@ -25,9 +24,8 @@ export default class EditProfile extends React.Component {
             lastErr: "",
             emailErr: "",
             emailConfErr: "",
-            oldPassErr: "",
-            newPassErr: "If left blank then old password won't change",
-            newPassConfErr: "",
+            passErr: "",
+            passConfErr: "",
             locationErr: "",
             dobErr: ""
         }))
@@ -42,9 +40,8 @@ export default class EditProfile extends React.Component {
         let lastName = eForm.target.elements.user_last.value.trim();
         let email = eForm.target.elements.user_email.value.trim();
         let emailConf = eForm.target.elements.user_email_conf.value.trim();
-        let oldPass = eForm.target.elements.user_old_pass.value;
-        let newPass = eForm.target.elements.user_new_pass.value;
-        let newPassConf = eForm.target.elements.user_new_pass_conf.value;
+        let pass = eForm.target.elements.user_pass.value;
+        let passConf = eForm.target.elements.user_pass_conf.value;
         let city = eForm.target.elements.user_city.value.trim();
         let st = eForm.target.elements.user_state.value;
         let day = eForm.target.elements.bd_day.value;
@@ -73,14 +70,14 @@ export default class EditProfile extends React.Component {
             this.setState( () => ({emailConfErr: "Emails do not match"}) );
         }
 
-        if(!oldPass) {
+        if(!pass) {
             err = true;
-            this.setState( () => ({oldPassErr: "Your password is required to update your information"}) );
+            this.setState( () => ({passErr: "Please enter a password"}) );
         }
 
-        if(newPass != newPassConf) {
+        if(pass != passConf) {
             err = true;
-            this.setState( () => ({newPassConfErr: "New passwords do not match"}) );
+            this.setState( () => ({passConfErr: "Passwords do not match"}) );
         }
 
         if(!city || !st) {
@@ -94,10 +91,8 @@ export default class EditProfile extends React.Component {
         }
 
         if(!err) {
-            if (newPass)
-                oldPass = newPass;
 
-            let updatedUser = {
+            let newUser = {
                 First: firstName,
                 Last: lastName,
                 Email: email,
@@ -117,7 +112,7 @@ export default class EditProfile extends React.Component {
                 getLocation() {return (this.City + ", " +this.State)}
             }
 
-            this.props.userUpdater(updatedUser);
+            console.log(newUser);
         }
         
         
@@ -125,47 +120,51 @@ export default class EditProfile extends React.Component {
 
     render(props) {
         return (
-            <div className="article" id="editProfile">
+            <div id="body">
+            <div className="article">
                 <div className="article_title">
-                    <h3>Edit Information</h3>
+                    {this.props.isDoctor && <h1>Doctor Sign Up <a id="signin_extra" className="link_style" >(Already a Doctor?)</a></h1>}
+                    {!this.props.isDoctor && <h1>Patient Sign Up <a id="signin_extra" className="link_style" >(Already a Patient?)</a></h1>}
                 </div>
-
-                <div className="info_container container_spread roboto">
+                <p>Welcome dear user!</p>
+                <p>Lorem ipsum dolor sit amet tortor. Integer est leo, accumsan in nunc id, iaculis elementum mi. Curabitur pharetra risus lorem, eget porta ligula molestie sit amet. Morbi at lorem vulputate, congue eros vel, commodo lectus. Maecenas efficitur eu mi eu ultrices.</p>    
+            </div>
+            <br />
+            <div className="article">
+                <div class="article_title">
+                    <h2>Sign up form</h2>
+                </div>
                     <div className="form blue_inputs blue_dropbox roboto">
                     <form onSubmit={this.handleEdit}>
                         First Name :<br />
                         <span className="error_span">{this.state.firstErr}</span>
-                        <input type="text" name="user_first" defaultValue={this.props.userInfo.First} /> <br />
+                        <input type="text" name="user_first" /> <br />
 
                         Last Name : <br />
                         <span className="error_span">{this.state.lastErr}</span>
-                        <input type="text" name="user_last" defaultValue={this.props.userInfo.Last} /> <br />
+                        <input type="text" name="user_last"  /> <br />
 
                         Email : <br />
                         <span className="error_span">{this.state.emailErr}</span>
-                        <input type="email" name="user_email" defaultValue={this.props.userInfo.Email} /> <br />
+                        <input type="email" name="user_email"  /> <br />
 
                         Confirm Email : <br />
                         <span className="error_span">{this.state.emailConfErr}</span>
-                        <input type="email" name="user_email_conf" defaultValue={this.props.userInfo.Email} /> <br />
+                        <input type="email" name="user_email_conf"  /> <br />
 
-                        Old Password : <br />
-                        <span className="error_span">{this.state.oldPassErr}</span>
-                        <input type="password" name="user_old_pass"/> <br />
+                        Password : <br />
+                        <span className="error_span">{this.state.passErr}</span>
+                        <input type="password" name="user_pass"/> <br />
 
-                        New Password : <br />
-                        <span className="error_span">{this.state.newPassErr}</span>
-                        <input type="password" name="user_new_pass"/> <br />
-
-                        Confirm New Password : <br />
-                        <span className="error_span">{this.state.newPassConfErr}</span>
-                        <input type="password" name="user_new_pass_conf"/> <br />
+                        Confirm Password : <br />
+                        <span className="error_span">{this.state.passConfErr}</span>
+                        <input type="password" name="user_pass_conf"/> <br />
 
                         Location :
                         <span className="error_span">{(this.state.locationErr) && <br />}{this.state.locationErr}</span> <br />
-                        <input id="input_city" name="user_city" type="text" placeholder="City" defaultValue={this.props.userInfo.City} />
+                        <input id="input_city" name="user_city" type="text" placeholder="City" />
 
-                        <select name="user_state" defaultValue={this.props.userInfo.State} >
+                        <select name="user_state" defaultValue="" >
                             <option value="" disabled hidden>States</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -176,7 +175,7 @@ export default class EditProfile extends React.Component {
 
                         Birthday :
                         <span className="error_span">{(this.state.dobErr) && <br />}{this.state.dobErr}</span><br/>
-                        <select name="bd_month" defaultValue={this.props.userInfo.Birthday.Month} >
+                        <select name="bd_month" defaultValue="" >
                             <option value="" disabled hidden>MM</option>
                             <option value="1">01</option>
                             <option value="2">02</option>
@@ -185,7 +184,7 @@ export default class EditProfile extends React.Component {
                             <option value="5">05</option>
                         </select>
 
-                        <select name="bd_day" defaultValue={this.props.userInfo.Birthday.Day} >
+                        <select name="bd_day" defaultValue="" >
                             <option value="" disabled hidden>DD</option>
                             <option value="1">01</option>
                             <option value="2">02</option>
@@ -194,18 +193,18 @@ export default class EditProfile extends React.Component {
                             <option value="5">05</option>
                         </select>
                 
-                        <input id="input_year" name="bd_year" type="text" maxlength="4" placeholder="YYYY" defaultValue={this.props.userInfo.Birthday.Year} /> <br />
+                        <input id="input_year" name="bd_year" type="text" maxlength="4" placeholder="YYYY" /> <br />
 
                         Gender <br />
-                        <input type="radio" name="gender" value="Male" defaultChecked={(this.props.userInfo.Gender == "Male")} /> Male
-                        <input type="radio" name="gender" value="Female" defaultChecked={(this.props.userInfo.Gender != "Male")} /> Female <br />
+                        <input type="radio" name="gender" value="Male" defaultChecked={true} /> Male
+                        <input type="radio" name="gender" value="Female" /> Female <br />
 
                         <div className="form_button">
-                            <input className="medium_blue_r_button" type="submit" value="Update"/>
+                            <input className="medium_blue_r_button" type="submit" value="Sign up!"/>
                         </div>
                     </form>
                     </div>
-                </div>
+            </div>
             </div>
         );
     }
