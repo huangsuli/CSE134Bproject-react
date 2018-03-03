@@ -95,7 +95,7 @@ export default class PatientProfile extends React.Component {
         console.log(this.state.requests);
         return (                          
             <div id="body">
-            { (this.props.viewSelector==0) && <ProfileView userInfo={this.state.user} />}
+            { (this.props.viewSelector==0) && <ProfileView userInfo={this.state.user} isDoctor={this.props.isDoctor} />}
             { (this.props.viewSelector==1) && <EditProfile userInfo={this.state.user} />}
             { (this.props.viewSelector==2) && <MakeRequest requestAdder={this.requestAddHandler}/>}
             { (this.props.viewSelector==3) && <RequestHistory requests={this.state.requests} />}

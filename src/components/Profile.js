@@ -23,7 +23,7 @@ export default class Page extends React.Component {
             <div>
                 <Menu isDoctor={this.props.isDoctor} selectorChanger={this.selectorChangerHandler} />
                 {(this.props.isDoctor) 
-                ? <DoctorProfile viewSelector={this.state.viewSelector} />
+                ? <DoctorProfile viewSelector={this.state.viewSelector} isDoctor={this.props.isDoctor} />
                 : <PatientProfile viewSelector={this.state.viewSelector} />}
             </div>
         );

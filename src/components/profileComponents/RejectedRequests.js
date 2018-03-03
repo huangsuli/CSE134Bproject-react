@@ -11,8 +11,22 @@ const RejectedRequests = (props) => {
                 <table id="historyTable">
                 <tbody>
                     <tr>
-                        <td>This is a test!</td>
+                        <td>#</td>    
+                        <th>Date</th>    
+                        <th>Patient</th>
                     </tr>
+
+                    {
+                        props.requests.slice().reverse().map( (request) => {
+                                return (
+                                    <tr key={request.id}>
+                                        <th>{request.id}</th>
+                                        <td>{request.date.ToString()}</td>
+                                        <td>{request.patientName}</td>
+                                    </tr>)
+                            }
+                        )
+                    }
                 </tbody>
                 </table>
             </div>

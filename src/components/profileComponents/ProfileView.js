@@ -33,10 +33,12 @@ const ProfileView = (props) => {
                         <td>{props.userInfo.getLocation()}</td>
                     </tr>
 
+                    {!props.isDoctor &&
                     <tr>
                         <th>Link to session</th>
                         <td>{props.userInfo.Session}</td>
                     </tr>
+                    }
 
                     <tr class="last_tr">
                         <th>Gender</th>
