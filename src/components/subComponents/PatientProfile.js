@@ -7,6 +7,7 @@ import RequestHistory from '../profileComponents/RequestHistory';
 export default class PatientProfile extends React.Component {
     constructor(props) {
         super(props);
+        this.requestAddHandler = this.requestAddHandler.bind(this);
         this.state = {
             user: {
                 First: "Ben",
@@ -82,6 +83,12 @@ export default class PatientProfile extends React.Component {
             ]
         };
     }
+
+    requestAddHandler(bundledRequest) {
+        bundledRequest.id = this.state.requests.length+1;
+        this.setState( (prevState) => ({requests: prevState.requests.concat(bundledRequest)}) );    
+    }
+
     render(props) {
 
         console.log("In PatientProfile: ");
@@ -90,7 +97,7 @@ export default class PatientProfile extends React.Component {
             <div id="body">
             { (this.props.viewSelector==0) && <ProfileView userInfo={this.state.user} />}
             { (this.props.viewSelector==1) && <EditProfile userInfo={this.state.user} />}
-            { (this.props.viewSelector==2) && <MakeRequest  />}
+            { (this.props.viewSelector==2) && <MakeRequest requestAdder={this.requestAddHandler}/>}
             { (this.props.viewSelector==3) && <RequestHistory requests={this.state.requests} />}
             { (this.props.viewSelector>3) && <ProfileView userInfo={this.state.user}/>}
             </div>
