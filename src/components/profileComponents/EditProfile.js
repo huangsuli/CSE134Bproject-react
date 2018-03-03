@@ -11,19 +11,19 @@ const EditProfile = (props) => {
                 <div className="form blue_inputs blue_dropbox roboto">
                     First Name :<br />
                     <span id="firstname_error" class="error_span"></span>
-                    <input type="text" id="user_first"/> <br />
+                    <input type="text" id="user_first" defaultValue={props.userInfo.First} /> <br />
 
                     Last Name : <br />
                     <span id="lastname_error" class="error_span"></span>
-                    <input type="text" id="user_last"/> <br />
+                    <input type="text" id="user_last" defaultValue={props.userInfo.Last} /> <br />
 
                     Email : <br />
                     <span id="email_error" class="error_span"></span>
-                    <input type="email" id="user_email"/> <br />
+                    <input type="email" id="user_email" defaultValue={props.userInfo.Email} /> <br />
 
                     Confirm Email : <br />
                     <span id="email_conf_error" class="error_span"></span>
-                    <input type="email" id="user_email_conf"/> <br />
+                    <input type="email" id="user_email_conf" defaultValue={props.userInfo.Email} /> <br />
 
                     Old Password : <br />
                     <span id="old_password_error" class="error_span"></span>
@@ -39,9 +39,9 @@ const EditProfile = (props) => {
 
                     Location : <br />
                     <span id="location_error" class="error_span"></span>
-                    <input id="input_city" type="text" placeholder="City"/>
+                    <input id="input_city" type="text" placeholder="City" defaultValue={props.userInfo.City} />
 
-                    <select id="user_state" defaultValue="">
+                    <select id="user_state" defaultValue={props.userInfo.State} >
                         <option value="" disabled hidden>States</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -52,7 +52,7 @@ const EditProfile = (props) => {
 
                     Birthday : <br />
                     <span id="year_error" class="error_span"></span>
-                    <select id="bd_month" defaultValue="">
+                    <select id="bd_month" defaultValue={props.userInfo.Birthday.Month} >
                         <option value="" disabled hidden>MM</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
@@ -61,7 +61,7 @@ const EditProfile = (props) => {
                         <option value="5">05</option>
                     </select>
 
-                    <select id="bd_day" defaultValue="">
+                    <select id="bd_day" defaultValue={props.userInfo.Birthday.Day} >
                         <option value="" disabled hidden>DD</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
@@ -70,11 +70,11 @@ const EditProfile = (props) => {
                         <option value="5">05</option>
                     </select>
               
-                    <input id="input_year" type="text" maxlength="4" placeholder="YYYY"/> <br />
+                    <input id="input_year" type="text" maxlength="4" placeholder="YYYY" defaultValue={props.userInfo.Birthday.Year} /> <br />
 
                     Gender <br />
-                    <input type="radio" name="gender" id="radio_male"/> Male
-                    <input type="radio" name="gender" id="radio_female"/> Female <br />
+                    <input type="radio" name="gender" id="radio_male" defaultChecked={(props.userInfo.Gender == "Male")} /> Male
+                    <input type="radio" name="gender" id="radio_female" defaultChecked={(props.userInfo.Gender != "Male")} /> Female <br />
 
                     <div className="form_button">
                         <input className="medium_blue_r_button" type="submit" value="Update"/>
