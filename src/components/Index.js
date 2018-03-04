@@ -1,6 +1,9 @@
 import React from 'react';
+import {  BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-const Index = () => (
+
+const Index = () => {
+  return (
     <div id="body">
       <div className="article">
         <h1 className="article_title"> Welcome to WebMD </h1>
@@ -20,16 +23,17 @@ const Index = () => (
       <div id="index_choices">
         <div className="left_floater">
           <div className="big_blue_button">
-            <a href="patSign.html"> Get an online examination!</a>
+            <Link to="/patient_register"> Get an online examination!</Link>
           </div>
         </div>
         <div className="left_floater">
           <div className="big_blue_button">
-            <a href="docSign.html"> Join our Doctor team!</a>
+            <Link to="/doctor_register">Join our Doctor team!</Link>
           </div>
         </div>
       </div>
     </div>
-);
+  )
+};
 
 export default Index;

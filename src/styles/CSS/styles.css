@@ -238,7 +238,7 @@ a:hover { text-decoration:underline; }
 }
 
 input[type="date"] {
-    background: #fff 97% 50% no-repeat;
+    background: #fff url('../Pictures/cal_icon.png') 97% 50% no-repeat;
 }
 
 input[type="date"]::-webkit-inner-spin-button {
@@ -298,9 +298,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #login_container {
   width: 400px;
   height: 220px;
-  border: 2px solid DarkTurquoise;
+  border: 2px solid grey;
   margin: 0 auto;
-  margin-top: 15%;
+  margin-top: 10%;
+  margin-bottom: 15%;
 
   box-shadow: 10px 0 8px -8px black, -10px 0 8px -8px black, 0px 10px 8px -8px black, 0px -10px 8px -8px black;
 
@@ -567,7 +568,7 @@ body {
 #index_choices {
     width: 50%;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .left_floater {

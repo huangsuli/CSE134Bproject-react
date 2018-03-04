@@ -22,7 +22,8 @@ export default class Contact extends React.Component {
             firstErr: "",
             lastErr: "",
             emailErr: "",
-            comErr: ""
+            comErr: "",
+            phoneErr: ""
             //ratingErr:""
         }));
     }
