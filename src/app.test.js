@@ -35,6 +35,18 @@ describe('<About />', () => {
         renderedComponent
       ).toExist();
     });
+    
+    it('contains a form', () => {
+      const renderedComponent = shallow(
+        <Contact />
+      );
+      const wrapper = mount(<Contact />);
+      const form = wrapper.find("form");
+
+      expect(
+        form
+      ).toExist();
+    });
 
     it('contains a submit button', () => {
       const renderedComponent = shallow(
@@ -45,6 +57,18 @@ describe('<About />', () => {
       expect(
         submitButton
       ).toExist();
+    });
+
+    it('contains the proper heading', () => {
+      const renderedComponent = shallow(
+        <Contact />
+      );
+      const wrapper = mount(<Contact />);
+      const title = wrapper.find('h1').text();
+      const text = "Need to reach us?";
+      expect(
+        title
+      ).toEqual(text);
     });
   })
 
