@@ -8,6 +8,13 @@ import Contact from './components/Contact';
 import Index from './components/Index';
 import Header from './components/subComponents/Header';
 import Footer from './components/subComponents/Footer';
+//other components
+import Chat from './components/Chat';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import RequestDetail from './components/RequestDetail';
+import EditProfile from './components/profileComponents/EditProfile';
+import ProfileView from './components/profileComponents/ProfileView'
 
 require.extensions['.svg'] = () => {};
 require.extensions['.png'] = () => {};
@@ -81,17 +88,6 @@ describe('<About />', () => {
         renderedComponent
       ).toExist();
     });
-
-    it('has a heading', () => {
-      const renderedComponent = shallow(
-        <Index />
-      );
-      const wrapper = mount(<Index />);
-      const heading = wrapper.find('h1').text();
-      const text = " Welcome to WebMD ";
-      expect(
-        heading).toEqual(text);
-    });
   })
 
   describe('<Rate />', () => {
@@ -136,6 +132,56 @@ describe('<About />', () => {
       ).toExist();
     });
   })
+
+  //other tests
+  describe('<Chat />', () => {
+    it('creates a chat component', () => {
+      const renderedComponent = shallow(
+        <Chat />
+      );
+  
+      expect(
+        renderedComponent
+      ).toExist();
+    });
+  })
+
+  describe('<Login />', () => {
+    it('creates a login component', () => {
+      const renderedComponent = shallow(
+        <Login />
+      );
+  
+      expect(
+        renderedComponent
+      ).toExist();
+    });
+  })
+
+  describe('<Signup />', () => {
+    it('creates a sign up page', () => {
+      const renderedComponent = shallow(
+        <Signup />
+      );
+  
+      expect(
+        renderedComponent
+      ).toExist();
+    });
+
+    it('contains a form', () => {
+      const renderedComponent = shallow(
+        <Contact />
+      );
+      const wrapper = mount(<Contact />);
+      const form = wrapper.find("form");
+
+      expect(
+        form
+      ).toExist();
+    });
+  })
+
 
 
 
