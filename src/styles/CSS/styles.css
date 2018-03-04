@@ -238,7 +238,7 @@ a:hover { text-decoration:underline; }
 }
 
 input[type="date"] {
-    background: #fff 97% 50% no-repeat;
+    background: #fff url('../Pictures/cal_icon.png') 97% 50% no-repeat;
 }
 
 input[type="date"]::-webkit-inner-spin-button {
