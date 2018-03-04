@@ -1,4 +1,6 @@
 import React from 'react';
+import {  BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+
 
 const PendingRequests = (props) => {
     return (
@@ -23,7 +25,7 @@ const PendingRequests = (props) => {
                                         <th>{request.id}</th>
                                         <td>{request.date.ToString()}</td>
                                         <td>{request.patientName}</td>
-                                        <td><button className="medium_blue_r_button table_button">Details</button></td>
+                                        <td><Link to="request_detailer"><button className="medium_blue_r_button table_button">Details</button></Link></td>
                                     </tr>)
                             }
                         )

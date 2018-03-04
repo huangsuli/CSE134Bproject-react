@@ -9,6 +9,7 @@ import About from './About.js'; //no requirements
 import Contact from './Contact.js'; //no requirements
 import Rate from './Rate.js'; //requires isDoctor
 import Login from './Login.js'; //no requirements
+import RequestDetail from './RequestDetail'; //no requirements
 import {  BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 export default class Page extends React.Component {
@@ -67,6 +68,8 @@ export default class Page extends React.Component {
                     <Route path="/About_us" component={About} />
 
                     <Route path="/Login" component={Login} />
+
+                    <Route path="/request_detailer" component={RequestDetail} />
 
                     <Route component={Index} />
                 </Switch>
