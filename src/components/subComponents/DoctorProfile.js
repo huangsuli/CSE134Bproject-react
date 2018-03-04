@@ -8,6 +8,7 @@ import PendingRequests from '../profileComponents/PendingRequests';
 export default class DoctorProfile extends React.Component {
     constructor(props) {
         super(props);
+        this.userUpdaterHandler = this.userUpdaterHandler.bind(this);
         this.state = {
             user: {
                 First: "Mark",
@@ -153,12 +154,18 @@ export default class DoctorProfile extends React.Component {
             ]
         };
     }
+
+    userUpdaterHandler(bundledUser) {
+      this.setState( () => ({user: bundledUser}) );
+      alert("Your information has been updated!");
+    }
+    
     render(props) {
         console.log(this.props.viewSelector);     
         return (                          
             <div id="body">
             { (this.props.viewSelector==0) && <ProfileView userInfo={this.state.user} isDoctor={this.props.isDoctor} />}
-            { (this.props.viewSelector==1) && <EditProfile userInfo={this.state.user} />}            
+            { (this.props.viewSelector==1) && <EditProfile userInfo={this.state.user} userUpdater={this.userUpdaterHandler}/>}            
             { (this.props.viewSelector==2) && <PendingRequests requests={this.state.pendingRequests} />}
             { (this.props.viewSelector==3) && <AcceptedRequests requests={this.state.acceptedRequests} />}
             { (this.props.viewSelector==4) && <RejectedRequests requests={this.state.rejectedRequests} />}

@@ -20,12 +20,12 @@ const Index = () => (
       <div id="index_choices">
         <div className="left_floater">
           <div className="big_blue_button">
-            <a href="patSign.html"> Get an online examination!</a>
+            <a> Get an online examination!</a>
           </div>
         </div>
         <div className="left_floater">
           <div className="big_blue_button">
-            <a href="docSign.html"> Join our Doctor team!</a>
+            <a> Join our Doctor team!</a>
           </div>
         </div>
       </div>

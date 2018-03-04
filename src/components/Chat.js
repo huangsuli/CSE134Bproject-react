@@ -18,8 +18,7 @@ const ChildComponent = props => <p id="\doctor"> {props.name}: {props.value} </p
     this.state = {
       numChildren: 0,
       chat:[],
-      value: '',
-      doctor:true
+      value: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -47,7 +46,7 @@ const ChildComponent = props => <p id="\doctor"> {props.name}: {props.value} </p
 
     
     let name = null;
-    if(this.state.doctor == true) {
+    if(this.props.isDoctor == true) {
       name = "Doctor";
     }
     else {
