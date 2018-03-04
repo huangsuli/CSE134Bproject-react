@@ -4,7 +4,7 @@ const Index = () => (
     <div id="body">
       <div className="article">
         <h1 className="article_title"> Welcome to WebMD </h1>
-        <img alt="" className="article_pic"/>
+        <img src={require('./../styles/Pictures/index_doctor_3.jpg')}  alt="index doc" className="article_pic"/>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consectetur placerat euismod. Pellentesque sagittis nisl non ex ultricies egestas. Pellentesque tincidunt nisi sit amet rutrum consectetur. Proin consectetur ante eget nunc rutrum hendrerit. Cras quis ligula in arcu consequat malesuada ac in velit. Phasellus porttitor lorem vel nulla laoreet bibendum. Nullam tincidunt magna eget pellentesque pellentesque. Sed tempus felis id feugiat mattis. Etiam ante tellus, efficitur ornare ante vitae, ultricies efficitur orci. In ultricies odio at mauris congue imperdiet.
           <br />
