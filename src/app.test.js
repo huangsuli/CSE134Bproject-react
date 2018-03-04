@@ -49,7 +49,7 @@ describe('<About />', () => {
   })
 
   describe('<Index />', () => {
-    it('creates an index page with sign up buttons', () => {
+    it('creates an index page', () => {
       const renderedComponent = shallow(
         <Index />
       );
