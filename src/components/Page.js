@@ -4,6 +4,7 @@ import Footer from './subComponents/Footer.js';
 import Index from './Index.js';
 import Profile from './Profile.js';
 import Signup from './Signup.js';
+import Chat from './Chat.js';
 
 export default class Page extends React.Component {
     constructor(props) {
