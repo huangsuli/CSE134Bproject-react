@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/CSS/styles.css';
 import '../styles/CSS/chat_styles.css'
+import {  BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 
 const ParentComponent = props => (
@@ -46,11 +47,14 @@ const ChildComponent = props => <p id="\doctor"> {props.name}: {props.value} </p
 
     
     let name = null;
+    let rate_url = null;
     if(this.props.isDoctor == true) {
       name = "Doctor";
+      rate_url = "/doctor_rate";
     }
     else {
       name = "Patient";
+      rate_url = "patient_rate";
     }
     for (var i = 0; i < this.state.numChildren; i += 1) {
       children.push(<ChildComponent key={i} number={i} name={name} value={this.state.chat[i]}/>);
@@ -63,7 +67,7 @@ const ChildComponent = props => <p id="\doctor"> {props.name}: {props.value} </p
       <div id="wrapper">
           <div id="chat_menu">
             <p className="welcome roboto" id="welcome_message">Welcome, {name}</p>
-            <p className="logout roboto"><a id="exit" >Exit Chat</a></p>
+            <p className="logout roboto"><Link id="exit" to={rate_url}>Exit Chat</Link></p>
             
           </div>
           <ParentComponent>

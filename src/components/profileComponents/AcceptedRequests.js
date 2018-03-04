@@ -1,4 +1,5 @@
 import React from 'react';
+import {  BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 const AcceptedRequests = (props) => {
     return (
@@ -23,7 +24,7 @@ const AcceptedRequests = (props) => {
                                         <th>{request.id}</th>
                                         <td>{request.date.ToString()}</td>
                                         <td>{request.patientName}</td>
-                                        <td><button className="medium_blue_r_button table_button">Chat</button></td>
+                                        <td><Link to="/doctor_chat"><button className="medium_blue_r_button table_button">Chat</button></Link></td>
                                     </tr>)
                             }
                         )

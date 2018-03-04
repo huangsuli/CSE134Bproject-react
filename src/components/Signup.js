@@ -1,4 +1,5 @@
 import React from 'react';
+import {  BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 export default class Signup extends React.Component {
     constructor(props) {
@@ -14,7 +15,8 @@ export default class Signup extends React.Component {
             passErr: "",
             passConfErr: "",
             locationErr: "",
-            dobErr: ""
+            dobErr: "",
+            redirect: false
         };
     }
 
@@ -112,6 +114,7 @@ export default class Signup extends React.Component {
                 getLocation() {return (this.City + ", " +this.State)}
             }
 
+            this.setState( ()=>({redirect: true}) );
             console.log(newUser);
         }
         
@@ -123,8 +126,8 @@ export default class Signup extends React.Component {
             <div id="body">
             <div className="article">
                 <div className="article_title">
-                    {this.props.isDoctor && <h1>Doctor Sign Up <a id="signin_extra" className="link_style" >(Already a Doctor?)</a></h1>}
-                    {!this.props.isDoctor && <h1>Patient Sign Up <a id="signin_extra" className="link_style" >(Already a Patient?)</a></h1>}
+                    {this.props.isDoctor && <h1>Doctor Sign Up <Link to="/login" id="signin_extra" className="link_style" >(Already a Doctor?)</Link></h1>}
+                    {!this.props.isDoctor && <h1>Patient Sign Up <Link to="/login" id="signin_extra" className="link_style" >(Already a Patient?)</Link></h1>}
                 </div>
                 <p>Welcome dear user!</p>
                 <p>Lorem ipsum dolor sit amet tortor. Integer est leo, accumsan in nunc id, iaculis elementum mi. Curabitur pharetra risus lorem, eget porta ligula molestie sit amet. Morbi at lorem vulputate, congue eros vel, commodo lectus. Maecenas efficitur eu mi eu ultrices.</p>    
@@ -201,6 +204,7 @@ export default class Signup extends React.Component {
 
                         <div className="form_button">
                             <input className="medium_blue_r_button" type="submit" value="Sign up!"/>
+                            {this.state.redirect && <Redirect to={ (this.props.isDoctor) ? "/doctor_profile" : "/patient_profile"} />}
                         </div>
                     </form>
                     </div>
