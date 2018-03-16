@@ -1,5 +1,9 @@
 import React from 'react';
-
+//import StarRatings from './../../node_modules/react-star-ratings';
+import {Link, IndexLink} from 'react-router';
+import css from "../../styles/CSS/about_styles.css";
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 const About = () => (
     <div id="body">
     <div className="article">
