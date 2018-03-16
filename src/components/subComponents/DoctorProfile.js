@@ -4,31 +4,14 @@ import ProfileView from '../profileComponents/ProfileView';
 import AcceptedRequests from '../profileComponents/AcceptedRequests';
 import RejectedRequests from '../profileComponents/RejectedRequests';
 import PendingRequests from '../profileComponents/PendingRequests';
+import DB_Adapter from '../Redux/ReduxDBAdapter';
 
 export default class DoctorProfile extends React.Component {
     constructor(props) {
         super(props);
         this.userUpdaterHandler = this.userUpdaterHandler.bind(this);
         this.state = {
-            user: {
-                First: "Mark",
-                Last: "Young",
-                title: "Family Medicine",
-                Email: "my1977@email.com",
-                Password: "12291309",
-                City: "San Diego",
-                State: "CA",
-                Birthday:
-                {
-                    Day: 1,
-                    Month: 1,
-                    Year: 1977,
-                    ToString() {return this.Day + "/" + this.Month + "/" + this.Year}
-                },                
-                Gender: "Male",
-                fullName() {return this.First + " " + this.Last},
-                getLocation() {return this.City + ", " +this.State}
-            },
+            user: DB_Adapter.getConnectedUser(),
             pendingRequests: [
                 {
                     id: 1,

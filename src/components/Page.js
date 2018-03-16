@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './subComponents/Header.js'; //requires isConnected
 import Footer from './subComponents/Footer.js';
+import DB_Adapter from './Redux/ReduxDBAdapter.js';
 import Index from './Index.js'; //no requirements
 import Profile from './Profile.js'; //requires isDoctor
 import Signup from './Signup.js'; //requires isDoctor
@@ -22,6 +23,7 @@ export default class Page extends React.Component {
     }
 
     render() {
+        console.log(DB_Adapter);
         return(
             <Router>
             <div>

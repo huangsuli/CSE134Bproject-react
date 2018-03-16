@@ -1,4 +1,5 @@
 import React from 'react';
+import DB_Adapter from '../Redux/ReduxDBAdapter';
 
 export default class EditProfile extends React.Component {
     constructor(props) {
@@ -98,6 +99,8 @@ export default class EditProfile extends React.Component {
                 oldPass = newPass;
 
             let updatedUser = {
+                id: DB_Adapter.getConnectedUser().id,
+                isDoctor: DB_Adapter.getConnectedUser().isDoctor,
                 First: firstName,
                 Last: lastName,
                 Email: email,

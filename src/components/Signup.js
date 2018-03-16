@@ -1,5 +1,6 @@
 import React from 'react';
 import {  BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import DB_Adapter from './Redux/ReduxDBAdapter';
 
 export default class Signup extends React.Component {
     constructor(props) {
@@ -95,6 +96,9 @@ export default class Signup extends React.Component {
         if(!err) {
 
             let newUser = {
+                id: DB_Adapter.getLastIndex(),
+                isDoctor: this.props.isDoctor,
+                title: this.props.isDoctor ? "Family Medicine" : "",
                 First: firstName,
                 Last: lastName,
                 Email: email,
@@ -113,9 +117,13 @@ export default class Signup extends React.Component {
                 fullName() {return (this.First + " " + this.Last)},
                 getLocation() {return (this.City + ", " +this.State)}
             }
-
+            console.log("user as is: " + newUser);
+            DB_Adapter.setId(DB_Adapter.getLastIndex());
+            DB_Adapter.addUser(newUser);
+            DB_Adapter.setIsConnected(true);
+            console.log(DB_Adapter);        
             this.setState( ()=>({redirect: true}) );
-            console.log(newUser);
+            
         }
         
         
@@ -123,6 +131,7 @@ export default class Signup extends React.Component {
 
     render(props) {
         return (
+            
             <div id="body">
             <div className="article">
                 <div className="article_title">

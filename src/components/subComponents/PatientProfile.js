@@ -3,6 +3,7 @@ import EditProfile from '../profileComponents/EditProfile';
 import ProfileView from '../profileComponents/ProfileView';
 import MakeRequest from '../profileComponents/MakeRequest';
 import RequestHistory from '../profileComponents/RequestHistory';
+import DB_Adapter from '../Redux/ReduxDBAdapter';
 
 export default class PatientProfile extends React.Component {
     constructor(props) {
@@ -10,25 +11,7 @@ export default class PatientProfile extends React.Component {
         this.requestAddHandler = this.requestAddHandler.bind(this);
         this.userUpdaterHandler = this.userUpdaterHandler.bind(this);
         this.state = {
-            user: {
-                First: "Ben",
-                Last: "Chafik",
-                Email: "achafik@ucsd.edu",
-                Password: "123456",
-                City: "San Diego",
-                State: "CA",
-                Birthday:
-                {
-                    Day: 1,
-                    Month: 5,
-                    Year: 1994,
-                    ToString() { return this.Day + "/" + this.Month + "/" + this.Year}
-                },
-                Gender: "Male",
-                Session: "No session at the moment",
-                fullName() {return (this.First + " " + this.Last)},
-                getLocation() {return (this.City + ", " +this.State)}                
-            },
+            user: DB_Adapter.getConnectedUser(),
             requests: [
                 {
                     id: 1,
@@ -93,6 +76,9 @@ export default class PatientProfile extends React.Component {
 
     userUpdaterHandler(bundledUser) {
         this.setState( () => ({user: bundledUser}) );
+        DB_Adapter.modifyUser(bundledUser);
+        console.log("userUpdaterHandler: ");
+        console.log(DB_Adapter);
         alert("Your information has been updated!");
     }
 
