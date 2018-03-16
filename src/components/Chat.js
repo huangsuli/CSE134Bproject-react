@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/CSS/styles.css';
-import '../styles/CSS/chat_styles.css'
+import '../styles/CSS/chat_styles.css';
 import {  BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 

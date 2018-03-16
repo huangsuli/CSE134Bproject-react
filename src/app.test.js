@@ -14,7 +14,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import RequestDetail from './components/RequestDetail';
 import EditProfile from './components/profileComponents/EditProfile';
-import ProfileView from './components/profileComponents/ProfileView'
+import ProfileView from './components/profileComponents/ProfileView';
 
 require.extensions['.svg'] = () => {};
 require.extensions['.png'] = () => {};
@@ -31,7 +31,7 @@ describe('<About />', () => {
         renderedComponent
       ).toExist();
     });
-  })
+  });
 
   describe('<Contact />', () => {
     it('creates a contact page', () => {
@@ -77,7 +77,7 @@ describe('<About />', () => {
         title
       ).toEqual(text);
     });
-  })
+  });
 
   describe('<Index />', () => {
     it('creates an index page', () => {
@@ -88,7 +88,7 @@ describe('<About />', () => {
         renderedComponent
       ).toExist();
     });
-  })
+  });
 
   describe('<Rate />', () => {
     it('creates an rating page', () => {
@@ -109,7 +109,7 @@ describe('<About />', () => {
       expect(
         submitButton).toExist();
     });
-  })
+  });
 
   describe('<Header />', () => {
     it('creates a header for the website', () => {
@@ -120,7 +120,7 @@ describe('<About />', () => {
         renderedComponent
       ).toExist();
     });
-  })
+  });
 
   describe('<Footer />', () => {
     it('creates a footer for the website', () => {
@@ -131,7 +131,7 @@ describe('<About />', () => {
         renderedComponent
       ).toExist();
     });
-  })
+  });
 
   //other tests
   describe('<Chat />', () => {
@@ -144,7 +144,7 @@ describe('<About />', () => {
         renderedComponent
       ).toExist();
     });
-  })
+  });
 
   describe('<Login />', () => {
     it('creates a login component', () => {
@@ -156,7 +156,7 @@ describe('<About />', () => {
         renderedComponent
       ).toExist();
     });
-  })
+  });
 
   describe('<Signup />', () => {
     it('creates a sign up page', () => {
@@ -180,7 +180,7 @@ describe('<About />', () => {
         form
       ).toExist();
     });
-  })
+  });
 
 
 

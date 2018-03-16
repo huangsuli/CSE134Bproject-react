@@ -26,7 +26,7 @@ const generateId = (user) => {
   return user.firstName.toLowerCase() + '-' + user.lastName.toLowerCase();
 };
 
-class UserApi {
+class mockUserApi {
   static getAllUsers() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -40,17 +40,17 @@ class UserApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
-        const minAuthorNameLength = 3;
-        if (user.firstName.length < minAuthorNameLength) {
-          reject(`First Name must be at least ${minAuthorNameLength} characters.`);
+        const minUserNameLength = 3;
+        if (user.firstName.length < minUserNameLength) {
+          reject(`First Name must be at least ${minUserNameLength} characters.`);
         }
 
-        if (user.lastName.length < minAuthorNameLength) {
-          reject(`Last Name must be at least ${minAuthorNameLength} characters.`);
+        if (user.lastName.length < minUserNameLength) {
+          reject(`Last Name must be at least ${minUserNameLength} characters.`);
         }
 
         if (user.id) {
-          const existingAuthorIndex = users.findIndex(a => a.id == user.id);
+          const existingUserIndex = users.findIndex(a => a.id == user.id);
           users.splice(existingUserIndex, 1, user);
         } else {
           //Just simulating creation here.
