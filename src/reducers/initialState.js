@@ -1,7 +1,4 @@
 export default {
-    //total: 0,
-    ajaxCallsInProgress: 0,
-    //dishes: []
-    //messages: []
-    userType: userType.PATIENT
+    ajaxCallsInProgress: 0
+    //userType: userType.PATIENT
   };
