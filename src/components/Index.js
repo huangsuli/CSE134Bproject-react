@@ -1,4 +1,5 @@
 import React from 'react';
+import {  BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 const Index = () => (
     <div id="body">
@@ -20,14 +21,15 @@ const Index = () => (
       <div id="index_choices">
         <div className="left_floater">
           <div className="big_blue_button">
-            <a href="patSign.html"> Get an online examination!</a>
+          <Link to="/pat_signup">Get an online examination!</Link>
           </div>
         </div>
         <div className="left_floater">
           <div className="big_blue_button">
-            <a href="docSign.html"> Join our Doctor team!</a>
+            <Link to= "/doc_signup">Join our Doctor team!</Link>
           </div>
         </div>
+                
       </div>
     </div>
 );

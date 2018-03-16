@@ -1,0 +1,78 @@
+.chat_body {
+    font:12px arial;
+    color: #222;
+    text-align:center;
+    padding:35px; 
+    width: 80%;
+    margin: 0 auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    border-top: solid beige 1px;
+    box-shadow: 10px 0 8px -8px black, -10px 0 8px -8px black;
+}
+  
+form, p, span {
+    margin:0;
+    padding:0; }
+  
+input { font:12px arial; }
+  
+a {
+    color:#0000FF;
+    text-decoration:none; }
+  
+a:hover { text-decoration:underline; }
+  
+#wrapper, #loginform {
+    margin:0 auto;
+    padding-bottom:25px;
+    background:#EBF4FB;
+    width:504px;
+    border:1px solid #ACD8F0; }
+  
+#loginform { padding-top:18px; }
+  
+#loginform p { margin: 5px; }
+  
+#chatbox {
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; 
+}
+
+#chatbox #patient{
+    text-align:right;
+}
+
+#chatbox #doctor{
+    text-align:left;
+}
+  
+#usermsg {
+    width:395px;
+    border:1px 
+    solid #ACD8F0; }
+  
+#submit { width: 60px; }
+  
+#input_form {   
+    margin-left: 30px
+}
+
+.error { color: #ff0000; }
+  
+#chat_menu { padding:12.5px 25px 12.5px 25px; }
+  
+.welcome { float:left; }
+  
+.logout { float:right; }
+  
+.msgln { margin:0 0 2px 0; }
