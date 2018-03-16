@@ -1,5 +1,9 @@
 import React from 'react';
 //import StarRatings from './../../node_modules/react-star-ratings';
+import {Link, IndexLink} from 'react-router';
+import css from "../../styles/CSS/styles.css";
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 export default class Rate extends React.Component {
 

@@ -2,8 +2,8 @@ import mockUserApi from '../api/mockUserApi';
 import * as types from './actionTypes';
 import { beginAjaxCall } from './ajaxStatusActions';
 
-export function loadUsersSuccess(students) {
-    return {type: types.LOAD_USERS_SUCCESS, students};
+export function loadUsersSuccess(users) {
+    return {type: types.LOAD_USERS_SUCCESS, users};
 }
 
 export function loadUsers() {
